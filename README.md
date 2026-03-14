@@ -41,19 +41,18 @@ Features
 
 Projects Featured
 
-Inventory Management System
+Inventory Management System:
 A full-stack system for managing stock, products, and inventory operations.
 
- Student Management System
+ Student Management System:
 A system for managing student data and records.
 
-Portfolio Website
+**Portfolio Website**
 A personal developer portfolio showcasing my work and skills.
 
 
-Folder Structure
+**Folder Structure**
 src/
-
 components/
 Navbar.jsx
 Hero.jsx
@@ -63,12 +62,12 @@ Skills.jsx
 Contact.jsx
 
 
-Author
-Brian Munyua
+**Author**: 
+Brian Munyua:
 Full Stack Developer
 GitHub: https://github.com/CaptainB3465
 
-License
+**License**
 This project is open-source.
 
 
