@@ -1,16 +1,74 @@
-# React + Vite
+ Brian Munyua Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal developer portfolio built with **React** and **Vite**.
+The website showcases my projects, technical skills, and contact information as a Full Stack Developer.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+About the Project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio was built to present my work, skills, and experience in software development.
 
-## Expanding the ESLint configuration
+The website includes:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* A modern responsive layout
+* A project showcase
+* A technical skills section
+* A contact form
+* Smooth navigation between sections
+
+
+
+Technologies Used
+
+* JavaScript
+* React
+* Vite
+* HTML
+* CSS
+* Git
+
+
+
+Features
+
+* Responsive design for desktop and mobile
+* Clean developer-focused UI
+* Project cards with GitHub links
+* Skills grid displaying technologies
+* Contact form for communication
+
+
+Projects Featured
+
+Inventory Management System
+A full-stack system for managing stock, products, and inventory operations.
+
+ Student Management System
+A system for managing student data and records.
+
+Portfolio Website
+A personal developer portfolio showcasing my work and skills.
+
+
+Folder Structure
+src/
+
+components/
+Navbar.jsx
+Hero.jsx
+About.jsx
+Projects.jsx
+Skills.jsx
+Contact.jsx
+
+
+Author
+Brian Munyua
+Full Stack Developer
+GitHub: https://github.com/CaptainB3465
+
+License
+This project is open-source.
+
+
