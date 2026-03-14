@@ -1,11 +1,11 @@
- Brian Munyua Portfolio
+# Brian Munyua Portfolio
 
 This is my personal developer portfolio built with **React** and **Vite**.
 The website showcases my projects, technical skills, and contact information as a Full Stack Developer.
 
+---
 
-
-About the Project
+## About the Project
 
 This portfolio was built to present my work, skills, and experience in software development.
 
@@ -17,9 +17,9 @@ The website includes:
 * A contact form
 * Smooth navigation between sections
 
+---
 
-
-Technologies Used
+## Technologies Used
 
 * JavaScript
 * React
@@ -28,9 +28,9 @@ Technologies Used
 * CSS
 * Git
 
+---
 
-
-Features
+## Features
 
 * Responsive design for desktop and mobile
 * Clean developer-focused UI
@@ -38,21 +38,28 @@ Features
 * Skills grid displaying technologies
 * Contact form for communication
 
+---
 
-Projects Featured
+## Projects Featured
 
-Inventory Management System:
+### Inventory Management System
+
 A full-stack system for managing stock, products, and inventory operations.
 
- Student Management System:
+### Student Management System
+
 A system for managing student data and records.
 
-**Portfolio Website**
+### Portfolio Website
+
 A personal developer portfolio showcasing my work and skills.
 
+---
 
-**Folder Structure**
+## Folder Structure
+
 src/
+
 components/
 Navbar.jsx
 Hero.jsx
@@ -61,13 +68,20 @@ Projects.jsx
 Skills.jsx
 Contact.jsx
 
+---
 
-**Author**: 
-Brian Munyua:
+## Author
+
+Brian Munyua
 Full Stack Developer
+
 GitHub: https://github.com/CaptainB3465
 
-**License**
-This project is open-source.
+---
+
+## License
+
+This project is open-source and available for learning and personal use.
+
 
 
