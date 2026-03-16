@@ -1,5 +1,4 @@
-import React from 'react';
-import { Github, Linkedin, Twitter, ArrowUp, Code2, Heart } from 'lucide-react';
+import { Github, Linkedin, Facebook, Instagram, Mail, ArrowUp, Code2, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,6 +6,14 @@ const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const socials = [
+    { icon: <Github size={20} />, href: "https://github.com", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/brian-munyua", label: "LinkedIn" },
+    { icon: <Facebook size={20} />, href: "https://facebook.com/Munyua.W.Brian", label: "Facebook" },
+    { icon: <Instagram size={20} />, href: "https://instagram.com/captain_b.25", label: "Instagram" },
+    { icon: <Mail size={20} />, href: "mailto:munyuabrian712@gmail.com", label: "Email" },
+  ];
 
   return (
     <footer className="pt-20 pb-10 bg-bg-darker border-t border-glass-border">
@@ -24,15 +31,14 @@ const Footer = () => {
               performance, aesthetics, and user satisfaction.
             </p>
             <div className="flex gap-4">
-              {[
-                { icon: <Github size={20} />, href: "#" },
-                { icon: <Linkedin size={20} />, href: "#" },
-                { icon: <Twitter size={20} />, href: "#" },
-              ].map((social, idx) => (
+              {socials.map((social, idx) => (
                 <a 
                   key={idx} 
                   href={social.href}
+                  target={social.label !== "Email" ? "_blank" : undefined}
+                  rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
                   className="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:bg-primary hover:text-white hover:-translate-y-1 transition-all duration-300"
+                  aria-label={social.label}
                 >
                   {social.icon}
                 </a>

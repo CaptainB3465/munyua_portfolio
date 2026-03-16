@@ -1,9 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Facebook, Instagram, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const socials = [
+    { icon: <Github size={24} />, href: "https://github.com", label: "GitHub" },
+    { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/brian-munyua", label: "LinkedIn" },
+    { icon: <Facebook size={24} />, href: "https://facebook.com/Munyua.W.Brian", label: "Facebook" },
+    { icon: <Instagram size={24} />, href: "https://instagram.com/captain_b.25", label: "Instagram" },
+    { icon: <Mail size={24} />, href: "mailto:munyuabrian712@gmail.com", label: "Email" },
+  ];
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20">
       <div className="container mx-auto px-4 text-center">
@@ -39,30 +47,23 @@ const Hero = () => {
               View Work <ArrowRight size={20} />
             </a>
             <div className="flex items-center gap-4 ml-4">
-              <motion.a 
-                whileHover={{ y: -3 }}
-                href="https://github.com" 
-                className="p-3 glass-card hover:bg-white/10 transition-colors"
-              >
-                <Github size={24} />
-              </motion.a>
-              <motion.a 
-                whileHover={{ y: -3 }}
-                href="https://linkedin.com" 
-                className="p-3 glass-card hover:bg-white/10 transition-colors"
-              >
-                <Linkedin size={24} />
-              </motion.a>
-              <motion.a 
-                whileHover={{ y: -3 }}
-                href="mailto:contact@example.com" 
-                className="p-3 glass-card hover:bg-white/10 transition-colors"
-              >
-                <Mail size={24} />
-              </motion.a>
+              {socials.map((social, idx) => (
+                <motion.a 
+                  key={idx}
+                  whileHover={{ y: -3 }}
+                  href={social.href}
+                  target={social.label !== "Email" ? "_blank" : undefined}
+                  rel={social.label !== "Email" ? "noopener noreferrer" : undefined}
+                  className="p-3 glass-card hover:bg-white/10 transition-colors"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
             </div>
           </div>
         </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0 }}
