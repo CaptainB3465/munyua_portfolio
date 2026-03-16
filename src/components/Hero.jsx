@@ -1,38 +1,83 @@
 import React from 'react';
-import './Hero.css';
-import profileImg from '../assets/profile.png';
+import { motion } from 'framer-motion';
+import { Typewriter } from 'react-simple-typewriter';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="hero-section">
-      <div className="hero-grid">
-        <div className="hero-content animate-fade-in">
-          <h2 className="hero-subtitle">Hello, I'm</h2>
-          <h1 className="hero-title">Brian <span>Munyua</span></h1>
-          <h3 className="hero-typing">Full Stack Developer</h3>
-          <p className="hero-description">
-            I build scalable web applications and craft exceptional digital experiences 
-            with modern technologies.
+    <section id="home" className="min-h-screen flex items-center justify-center pt-20">
+      <div className="container mx-auto px-4 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20">
+            Available for new opportunities
+          </span>
+          <h1 className="text-5xl md:text-7xl mb-6">
+            Hi, I'm <span className="text-gradient">Brian Munyua</span>
+          </h1>
+          <div className="text-2xl md:text-3xl text-text-muted mb-8 h-10">
+            <Typewriter
+              words={['Full Stack Developer', 'UI/UX Enthusiast', 'Problem Solver', 'Open Source Contributor']}
+              loop={true}
+              cursor
+              cursorStyle="_"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1000}
+            />
+          </div>
+          <p className="max-w-2xl mx-auto text-lg text-text-muted mb-10">
+            I build high-performance, beautiful, and user-centric web applications 
+            using modern technologies and best practices.
           </p>
-          <div className="hero-btns">
-            <a href="#projects" className="btn btn-primary">View Projects</a>
-            <a href="#contact" className="btn btn-outline">Contact Me</a>
+
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a href="#projects" className="btn btn-primary flex items-center gap-2">
+              View Work <ArrowRight size={20} />
+            </a>
+            <div className="flex items-center gap-4 ml-4">
+              <motion.a 
+                whileHover={{ y: -3 }}
+                href="https://github.com" 
+                className="p-3 glass-card hover:bg-white/10 transition-colors"
+              >
+                <Github size={24} />
+              </motion.a>
+              <motion.a 
+                whileHover={{ y: -3 }}
+                href="https://linkedin.com" 
+                className="p-3 glass-card hover:bg-white/10 transition-colors"
+              >
+                <Linkedin size={24} />
+              </motion.a>
+              <motion.a 
+                whileHover={{ y: -3 }}
+                href="mailto:contact@example.com" 
+                className="p-3 glass-card hover:bg-white/10 transition-colors"
+              >
+                <Mail size={24} />
+              </motion.a>
+            </div>
           </div>
-          <div className="hero-socials">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Munyua W. Brian">FB</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" title="captain_b.25">IG</a>
-            <a href="https://github.com/CaptainB3465" target="_blank" rel="noreferrer" title="GitHub">GH</a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-text-muted/30 rounded-full flex justify-center p-1">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="w-1 h-2 bg-text-muted rounded-full"
+            />
           </div>
-        </div>
-        <div className="hero-image-container animate-fade-in">
-          <div className="image-frame">
-            <img src={profileImg} alt="Brian Munyua" className="profile-img" />
-          </div>
-        </div>
-      </div>
-      <div className="hero-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
+        </motion.div>
       </div>
     </section>
   );

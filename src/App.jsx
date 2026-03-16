@@ -6,13 +6,14 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import './App.css';
+import ParticlesBackground from './components/ParticlesBackground';
 
 function App() {
   return (
-    <div className="app">
+    <div className="app bg-bg-darker relative min-h-screen">
+      <ParticlesBackground />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Projects />
@@ -23,5 +24,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
