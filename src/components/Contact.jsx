@@ -24,7 +24,7 @@ const Contact = () => {
       newErrors.user_email = "Invalid email format";
     }
     if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -44,7 +44,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic spam protection: check honeypot
     if (formData.honeypot) {
       console.log("Spam detected");
@@ -59,10 +59,10 @@ const Contact = () => {
       // Replace these with actual EmailJS credentials
       // SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY
       await emailjs.sendForm(
-        'YOUR_SERVICE_ID', 
-        'YOUR_TEMPLATE_ID', 
-        formRef.current, 
-        'YOUR_PUBLIC_KEY'
+        'service_6aod8ih',
+        'template_rxco458',
+        formRef.current,
+        '6NStGqlzDBoMp7cBi'
       );
 
       setStatus('success');
@@ -73,7 +73,7 @@ const Contact = () => {
         message: '',
         honeypot: ''
       });
-      
+
       // Reset status after a few seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
@@ -100,7 +100,7 @@ const Contact = () => {
               <div>
                 <h3 className="text-3xl font-outfit mb-4">Let's discuss your next <span className="text-gradient">big idea</span></h3>
                 <p className="text-text-muted text-lg">
-                  I'm always open to discussing new projects, creative ideas or 
+                  I'm always open to discussing new projects, creative ideas or
                   opportunities to be part of your visions.
                 </p>
               </div>
@@ -137,7 +137,7 @@ const Contact = () => {
               <div className="glass-card p-8 md:p-10 relative overflow-hidden">
                 <AnimatePresence mode="wait">
                   {status === 'success' ? (
-                    <motion.div 
+                    <motion.div
                       key="success"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -151,7 +151,7 @@ const Contact = () => {
                       <p className="text-text-muted max-w-xs">
                         Thank you for reaching out. I'll get back to you as soon as possible.
                       </p>
-                      <button 
+                      <button
                         onClick={() => setStatus('idle')}
                         className="mt-8 text-primary font-medium hover:underline"
                       >
@@ -163,21 +163,21 @@ const Contact = () => {
 
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   {/* Honeypot field - hidden from users */}
-                  <input 
-                    type="text" 
-                    name="honeypot" 
-                    value={formData.honeypot} 
-                    onChange={handleChange} 
-                    className="hidden" 
-                    tabIndex="-1" 
-                    autoComplete="off" 
+                  <input
+                    type="text"
+                    name="honeypot"
+                    value={formData.honeypot}
+                    onChange={handleChange}
+                    className="hidden"
+                    tabIndex="-1"
+                    autoComplete="off"
                   />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-text-muted">Full Name</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         name="user_name"
                         value={formData.user_name}
                         onChange={handleChange}
@@ -188,8 +188,8 @@ const Contact = () => {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-text-muted">Email Address</label>
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         name="user_email"
                         value={formData.user_email}
                         onChange={handleChange}
@@ -201,8 +201,8 @@ const Contact = () => {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-text-muted">Subject</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
@@ -212,19 +212,19 @@ const Contact = () => {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-text-muted">Message</label>
-                    <textarea 
+                    <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows="5" 
+                      rows="5"
                       placeholder="Tell me more about your project..."
                       className={`w-full bg-white/5 border ${errors.message ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-4 py-3 text-text-main focus:outline-hidden focus:border-primary/50 transition-colors resize-none`}
                     ></textarea>
                     {errors.message && <p className="text-red-500 text-xs mt-1 flex items-center gap-1"><AlertCircle size={12} /> {errors.message}</p>}
                   </div>
-                  
-                  <button 
-                    type="submit" 
+
+                  <button
+                    type="submit"
                     disabled={status === 'loading'}
                     className="btn btn-primary w-full flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
@@ -236,7 +236,7 @@ const Contact = () => {
                   </button>
 
                   {status === 'error' && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="text-red-500 text-sm text-center font-medium mt-4 bg-red-500/10 py-2 rounded-lg border border-red-500/20"
