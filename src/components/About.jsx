@@ -6,8 +6,8 @@ import profileImg from '../assets/profile.png';
 const About = () => {
   const stats = [
     { icon: <Code className="text-primary" />, label: '3+ Years', sub: 'Experience' },
-    { icon: <Zap className="text-secondary" />, label: '50+', sub: 'Projects' },
-    { icon: <Globe className="text-accent" />, label: '10+', sub: 'Clients' },
+    { icon: <Zap className="text-secondary" />, label: '10+', sub: 'Projects' },
+    { icon: <Globe className="text-accent" />, label: '3+', sub: 'Clients' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const About = () => {
                 <img 
                   src={profileImg} 
                   alt="Brian Munyua" 
-                  className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 transition-all duration-500 scale-110 hover:scale-100"
+                  className="w-full h-full object-cover rounded-xl transition-all duration-500 scale-110 hover:scale-100"
                 />
               </div>
             </div>

@@ -1,4 +1,5 @@
-import { Github, Linkedin, Facebook, Instagram, Mail, ArrowUp, Code2, Heart } from 'lucide-react';
+import { Github, Linkedin, Facebook, Instagram, Mail, ArrowUp, Heart } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -21,8 +22,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2 space-y-6">
             <a href="#home" className="flex items-center gap-2 text-2xl font-bold font-outfit">
-              <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-secondary flex items-center justify-center text-white">
-                <Code2 size={24} />
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img src={logo} alt="BM Logo" className="w-full h-full object-contain" />
               </div>
               <span className="bg-linear-to-r from-white to-text-muted bg-clip-text text-transparent">Brian Munyua</span>
             </a>
@@ -71,7 +72,7 @@ const Footer = () => {
 
         <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-text-muted text-sm flex items-center gap-2">
-            © {currentYear} Brian Munyua. Made with <Heart size={14} className="text-secondary animate-pulse" /> by Antigravity.
+            © 2026 Brian Munyua. Built with React.
           </p>
           
           <button 

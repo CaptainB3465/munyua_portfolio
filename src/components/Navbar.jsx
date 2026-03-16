@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,8 +32,8 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2 text-2xl font-bold font-outfit"
         >
-          <div className="w-10 h-10 rounded-xl bg-linear-to-br from-primary to-secondary flex items-center justify-center text-white shadow-lg shadow-primary/20">
-            <Code2 size={24} />
+          <div className="w-10 h-10 flex items-center justify-center">
+            <img src={logo} alt="BM Logo" className="w-full h-full object-contain" />
           </div>
           <span className="hidden sm:inline bg-linear-to-r from-white to-text-muted bg-clip-text text-transparent">Brian Munyua</span>
         </motion.a>

@@ -10,7 +10,7 @@ import ParticlesBackground from './components/ParticlesBackground';
 
 function App() {
   return (
-    <div className="app bg-bg-darker relative min-h-screen">
+    <div className="app relative min-h-screen">
       <ParticlesBackground />
       <Navbar />
       <main className="relative z-10">
