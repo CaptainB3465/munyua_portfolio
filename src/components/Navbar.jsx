@@ -11,9 +11,21 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll Lock
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -23,14 +35,43 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const menuVariants = {
+    closed: {
+      x: "100%",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    },
+    open: {
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    }
+  };
+
+  const backdropVariants = {
+    closed: { opacity: 0 },
+    open: { opacity: 1 }
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 nav-blur' : 'py-6 bg-transparent'}`}>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled ? 'py-4 nav-blur border-b border-white/10' : 'py-6 bg-transparent'
+      }`}
+    >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <motion.a 
           href="#home" 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2 text-2xl font-bold font-outfit"
+          onClick={() => setIsOpen(false)}
         >
           <div className="w-10 h-10 flex items-center justify-center">
             <img src={logo} alt="BM Logo" className="w-full h-full object-contain" />
@@ -65,42 +106,70 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden p-2 text-text-main"
+          className="md:hidden relative z-[110] p-2 text-text-main hover:bg-white/5 rounded-lg transition-colors focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-card mx-4 mt-2 overflow-hidden"
-          >
-            <div className="flex flex-col p-6 gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-lg font-medium text-text-muted hover:text-primary transition-colors"
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={backdropVariants}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-bg-darker/80 backdrop-blur-sm z-[101] md:hidden"
+            />
+            
+            {/* Sidebar Menu */}
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="fixed top-0 right-0 bottom-0 w-[280px] bg-bg-dark/95 backdrop-blur-2xl z-[105] md:hidden border-l border-white/10 shadow-2xl flex flex-col pt-24 px-8 pb-10"
+            >
+              <div className="flex flex-col gap-6">
+                {navLinks.map((link, idx) => (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="text-2xl font-semibold text-text-muted hover:text-primary transition-colors py-2 block"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </motion.a>
+                ))}
+              </div>
+              
+              <div className="mt-auto">
+                <motion.a 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  href="#contact" 
+                  className="btn btn-primary w-full py-4 text-lg"
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
-                </a>
-              ))}
-              <a 
-                href="#contact" 
-                className="btn btn-primary w-full"
-                onClick={() => setIsOpen(false)}
-              >
-                Hire Me
-              </a>
-            </div>
-          </motion.div>
+                  Hire Me
+                </motion.a>
+                
+                <div className="mt-8 pt-8 border-t border-white/5 flex justify-center gap-6 text-text-muted">
+                   {/* Optional: Add social icons here too for better mobile UX */}
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
