@@ -37,7 +37,7 @@ const Navbar = () => {
 
   const menuVariants = {
     closed: {
-      x: "100%",
+      x: "-100%",
       transition: {
         type: "spring",
         stiffness: 400,
@@ -106,11 +106,13 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden relative z-[110] p-2 text-text-main hover:bg-white/5 rounded-lg transition-colors focus:outline-none"
+          className={`md:hidden relative z-[110] p-2 text-text-main hover:bg-white/10 rounded-full transition-all focus:outline-none ${
+            isOpen ? 'bg-white/10 scale-110 shadow-lg' : ''
+          }`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle Menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={32} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -125,7 +127,7 @@ const Navbar = () => {
               exit="closed"
               variants={backdropVariants}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-bg-darker/80 backdrop-blur-sm z-[101] md:hidden"
+              className="fixed inset-0 bg-bg-darker/90 backdrop-blur-md z-[101] md:hidden"
             />
             
             {/* Sidebar Menu */}
@@ -134,17 +136,17 @@ const Navbar = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 bottom-0 w-[280px] bg-bg-dark/95 backdrop-blur-2xl z-[105] md:hidden border-l border-white/10 shadow-2xl flex flex-col pt-24 px-8 pb-10"
+              className="fixed top-0 left-0 bottom-0 w-[75vw] max-w-[300px] bg-bg-dark/95 backdrop-blur-2xl z-[105] md:hidden border-r border-white/10 shadow-2xl flex flex-col pt-20 px-5 pb-10"
             >
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 my-auto">
                 {navLinks.map((link, idx) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="text-2xl font-semibold text-text-muted hover:text-primary transition-colors py-2 block"
+                    className="text-2xl font-semibold text-text-muted hover:text-primary transition-all py-3 block border-b border-white/5 last:border-0"
                     onClick={() => setIsOpen(false)}
                   >
                     {link.name}
@@ -152,19 +154,19 @@ const Navbar = () => {
                 ))}
               </div>
               
-              <div className="mt-auto">
+              <div className="mt-8">
                 <motion.a 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
                   href="#contact" 
-                  className="btn btn-primary w-full py-4 text-lg"
+                  className="btn btn-primary w-full py-4 text-lg shadow-primary/20"
                   onClick={() => setIsOpen(false)}
                 >
                   Hire Me
                 </motion.a>
                 
-                <div className="mt-8 pt-8 border-t border-white/5 flex justify-center gap-6 text-text-muted">
+                <div className="mt-6 pt-6 border-t border-white/5 flex justify-center gap-6 text-text-muted">
                    {/* Optional: Add social icons here too for better mobile UX */}
                 </div>
               </div>
