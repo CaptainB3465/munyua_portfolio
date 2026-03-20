@@ -19,11 +19,11 @@ const Projects = () => {
       links: { github: "https://github.com", live: "#" }
     },
     {
-      title: "AI Chat Dashboard",
-      desc: "Intelligent communication platform powered by cutting-edge language models.",
-      tech: ["Next.js", "OpenAI", "Prisma", "PostgreSQL"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop",
-      links: { github: "https://github.com", live: "#" }
+      title: "Smart Queue System",
+      desc: "A digital queue management platform that lets users join queues remotely, track their position in real time, and receive turn notifications — while giving admins powerful tools to manage service flow efficiently.",
+      tech: ["HTML", "CSS", "JavaScript", "Glassmorphism UI"],
+      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1000&auto=format&fit=crop",
+      links: { github: "https://github.com", live: "https://smart-queue-system-nine.vercel.app" }
     }
   ];
 
