@@ -4,11 +4,11 @@ import { Github, ExternalLink, Code, ArrowRight, X, AlertCircle, Lightbulb, Sett
 
 const projects = [
   {
-    title: "BM Inventory System",
-    desc: "A comprehensive management tool for tracking stock, orders, and sales with real-time analytics.",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1000&auto=format&fit=crop",
-    links: { github: "https://github.com", live: "https://bm-inventory-system-production-9838.up.railway.app" },
+    title: "Digital Memory App",
+    desc: "A premium, elegant SaaS web application for cataloging digital memories with a clean, minimal dashboard layout.",
+    tech: ["React", "Tailwind v4", "Vite", "Framer Motion"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    links: { github: "https://github.com/CaptainB3465/digital-memory-app.git", live: "#" },
     caseStudy: {
       sections: [
         {
@@ -16,35 +16,35 @@ const projects = [
           label: "Problem",
           color: "text-red-400",
           bg: "bg-red-500/10 border-red-500/20",
-          text: "Many businesses rely on manual or outdated methods to track inventory, which often leads to issues such as stock mismanagement, overstocking, stock shortages, and human errors. These inefficiencies can result in financial losses, poor decision-making, and reduced customer satisfaction.",
+          text: "Modern digital life results in fragmented, disorganized memories scattered across various devices and platforms. Existing solutions often lack the emotional resonance and premium aesthetic needed for personal archiving.",
         },
         {
           icon: Lightbulb,
           label: "Solution",
           color: "text-yellow-400",
           bg: "bg-yellow-500/10 border-yellow-500/20",
-          text: "The Inventory Management System was developed to automate and streamline inventory tracking and control. The system provides real-time visibility of stock levels, enabling businesses to efficiently manage products, monitor stock movement, and make informed decisions.",
+          text: "Designed and implemented a stunning web application UI for 'Digital Memory' that embodies an elegant SaaS layout. The app categorizes memories by timeline and collections, providing a distraction-free, emotionally engaging environment.",
         },
         {
           icon: Settings,
           label: "Implementation",
           color: "text-blue-400",
           bg: "bg-blue-500/10 border-blue-500/20",
-          text: "The system was built using modern technologies with a focus on usability and efficiency. It includes features such as product management, stock updates, and a centralized dashboard for monitoring inventory. Users can easily add, update, and track items, while the system ensures data accuracy and consistency. The interface is designed to be intuitive, allowing users with minimal technical knowledge to operate it effectively.",
+          text: "Built with React and Vite, the platform uses Tailwind CSS v4 for styling. It features a left sidebar for collections, a central timeline view with grouped memories, and a right-side modal for easy memory logging. A soft gradient background and clean typography create a premium aesthetic.",
         },
         {
           icon: BarChart2,
           label: "Results",
           color: "text-green-400",
           bg: "bg-green-500/10 border-green-500/20",
-          text: "The implementation of the system improved inventory accuracy, reduced manual errors, and enhanced operational efficiency. Businesses are able to track stock in real time, prevent shortages and overstocking, and improve overall productivity. The system also saves time and supports better decision-making through organized data management.",
+          text: "The UI redesign established a production-ready application that feels highly polished, emotional, and intuitive to use. It transforms memory keeping into a mindful digital experience with fluid transitions and smooth micro-interactions.",
         },
         {
           icon: Target,
           label: "Conclusion",
           color: "text-purple-400",
           bg: "bg-purple-500/10 border-purple-500/20",
-          text: "The Inventory Management System highlights the importance of digital solutions in modern business operations. By automating inventory processes, the system increases efficiency, accuracy, and reliability, making it a valuable tool for businesses aiming to optimize their operations.",
+          text: "By combining seamless micro-interactions with a refined design system, the Digital Memory App demonstrates the impact of modern frontend practices in personal SaaS products, turning utility into art.",
         },
       ],
     },
